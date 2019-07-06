@@ -16,8 +16,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems } from './dashboardCommon/listItems';
-import ReviewRequests from './Review/ReviewRequest';
-import EventQR from './QR/EventQR';
+import EventReport from './Report/EventReport';
 
 const drawerWidth = 240;
 
@@ -100,7 +99,7 @@ const useStyles = makeStyles(theme => ({
   	},
 }));
 
-function QRDashboard() {
+function ReportDashboard() {
 	const classes = useStyles();
 	const [draweropen, setDrawerOpen] = useState(false);
 	const handleDrawerOpen = () => {
@@ -109,7 +108,6 @@ function QRDashboard() {
 	const handleDrawerClose = () => {
 		setDrawerOpen(false);
 	};
-	const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
 	return (
 		<div className={classes.root}>
@@ -126,7 +124,7 @@ function QRDashboard() {
 					<MenuIcon />
 				</IconButton>
 				<Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-					QR Dashboard
+					Reports
 				</Typography>
 				<IconButton color="inherit">
 					<Badge badgeContent={4} color="secondary">
@@ -154,7 +152,7 @@ function QRDashboard() {
 				<div className={classes.appBarSpacer} />
 				<Container maxWidth="lg" className={classes.container}>
 					<Grid container spacing={3}>
-						<EventQR />
+                        <EventReport />
 					</Grid>
 				</Container>
 			</main>
@@ -162,4 +160,4 @@ function QRDashboard() {
   	);
 }
 
-export default QRDashboard;
+export default ReportDashboard;
