@@ -2,18 +2,27 @@ package lohith.com.careworks;
 
 public class RegisterEvent {
 
-    String eventid , eventname , username , number , skills;
+    String eventid , eventname , username , number , skills , date;
 
     public RegisterEvent(){
 
     }
 
-    public RegisterEvent(String eventid , String eventname , String username , String number , String skills ){
+    public RegisterEvent(String eventid , String eventname , String username , String number , String skills,String date ){
         this.eventid = eventid;
         this.eventname = eventname;
         this.number  = number;
         this.username = username;
         this.skills = skills;
+        this.date  = date;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public String getEventid() {
