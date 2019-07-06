@@ -19,6 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".eventactivity"></activity>
+        <activity android:name=".register_event"></activity>
     </application>
 
 </manifest>
