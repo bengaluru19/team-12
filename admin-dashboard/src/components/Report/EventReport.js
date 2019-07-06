@@ -6,7 +6,8 @@ import SwipeableViews from 'react-swipeable-views';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography'
+import Typography from '@material-ui/core/Typography';
+import VolunteerReport from './VolunteerReport';
 import firebase from './../../Firebase';
 
 const useStyles = makeStyles(theme => ({
@@ -67,9 +68,9 @@ export default function EventReport() {
     function handleChangeIndex(index) {
         setTabValue(index);
     }
-    console.log(userData);
+    let numVolunteers;
     let temp = userData[currentEventData.id];
-    console.log(temp);
+    if(temp) numVolunteers = temp.length;
 	return (
 		<div style={{ width: '100%'}}>
             <AppBar position="static" color="default">
@@ -116,7 +117,7 @@ export default function EventReport() {
                                     <div>
                                         <p>Event Name: {currentEventData.name}</p>
                                         <p>Event Date: {currentEventData.date.slice(1,11)}</p>
-                                        {/* <p>Number of Volunteers: {userData[currentEventData.id].length}</p> */}
+                                        <p>Number of Volunteers: {numVolunteers}</p>
                                     </div>
                                 </div>
                             }
@@ -126,7 +127,9 @@ export default function EventReport() {
                         </div>
                     </div>
                 </TabContainer>
-                <TabContainer dir={theme.direction}>Item Two</TabContainer>
+                <TabContainer dir={theme.direction}>
+                    <VolunteerReport />
+                </TabContainer>
             </SwipeableViews>
             
         </div>
