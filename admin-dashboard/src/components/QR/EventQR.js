@@ -4,6 +4,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import firebase from './../../Firebase';
 import QRCode from 'qrcode.react';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -38,6 +39,7 @@ function EventQR(){
         setSelectedEvent(value);
     };
     return(
+        <div style={{ width: '100%'}}>
         <div style={{ display: 'flex',width:'100%',justifyContent:'space-around' }}>
             <FormControl className={classes.formControl}>
                 <label>Select Event</label>
@@ -62,6 +64,11 @@ function EventQR(){
                 { selectedEvent==='' && "No selectedEvent" }
                 { selectedEvent!== '' && <QRCode value={selectedEvent} /> }
             </div>
+        </div>
+        <br />
+            <br />
+            <br />
+            <Link to="/scan">scan</Link>
         </div>
     );
 }
