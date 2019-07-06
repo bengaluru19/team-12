@@ -44,11 +44,19 @@ public class MainActivity extends AppCompatActivity {
         username = findViewById(R.id.email);
         password = findViewById(R.id.password);
 
+        String skills = "IT,Science";
+        String number = "80959588327";
+
+        String name = username.getText().toString().trim();
+        final globalclass globalvariable = (globalclass) getApplicationContext();
+        globalvariable.setUsername(name);
+        globalvariable.setNumber(skills);
+        globalvariable.setNumber(number);
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this,eventactivity.class);
-                intent.putExtra("username",username.getText().toString());
                 startActivity(intent);
             }
         });
