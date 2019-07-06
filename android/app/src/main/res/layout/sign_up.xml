@@ -8,7 +8,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:fontFamily="serif"
         android:text="Enter Your Details"
         android:textSize="24sp" />
@@ -16,17 +16,18 @@
 
     <TextView
         android:id="@+id/name_field"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/intro" />
-        android:text="Name"
+        android:text="Email"
         android:layout_marginLeft="10dp"/>
 
     <EditText
         android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/name_field" />
+        android:layout_below="@+id/name_field"
+        android:background="@drawable/edittext_bg"/>
 
     <TextView
         android:id="@+id/email_field"
@@ -41,6 +42,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/email_field"
+        android:background="@drawable/edittext_bg"/>
         android:inputType="textEmailAddress" />
 
     <TextView
@@ -56,6 +58,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/age_field"
+        android:background="@drawable/edittext_bg"/>
         android:inputType="text" />
 
     <TextView
@@ -71,6 +74,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/number_field"
+        android:background="@drawable/edittext_bg"/>
         android:inputType="text" />
 
     <TextView
@@ -86,6 +90,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/skill_set_field"
+        android:background="@drawable/edittext_bg"/>
         android:inputType="text" />
 
     <TextView
@@ -101,6 +106,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/city_field"
+        android:background="@drawable/edittext_bg"/>
         android:inputType="text" />
 
     <TextView
@@ -116,6 +122,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/gender_field"
+        android:background="@drawable/edittext_bg"/>
         android:inputType="text" />
 
     <Button
