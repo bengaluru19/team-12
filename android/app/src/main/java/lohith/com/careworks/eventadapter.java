@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 public class eventadapter extends RecyclerView.Adapter<eventadapter.eventviewholder> {
@@ -32,10 +34,10 @@ public class eventadapter extends RecyclerView.Adapter<eventadapter.eventviewhol
     public void onBindViewHolder(@NonNull eventviewholder eventview, int i) {
         event e = my_events.get(i);
 
-        eventview.title.setText(items.getName());
-        eventview.desc.setText(items.getDesc());
-        eventview.price.setText(items.getPrice());
-        Picasso.get().load(items.getUrl()).into(farmerViewholder.imageView);
+        eventview.name.setText(e.getName());
+        eventview.description.setText(e.getDescription());
+        eventview.date.setText(e.getDate());
+        Picasso.get().load(e.getUrl()).into(eventview.img);
 
     }
 
@@ -49,10 +51,10 @@ public class eventadapter extends RecyclerView.Adapter<eventadapter.eventviewhol
         ImageView img;
         public eventviewholder( View itemview){
             super(itemview);
-            name = itemview.findViewById(R.id.textname);
-            description = itemview.findViewById(R.id.textfname);
-            date = itemview.findViewById(R.id.textmname);
-            img = itemview.findViewById(R.id.textage);
+            name = itemview.findViewById(R.id.name_of_event);
+            description = itemview.findViewById(R.id.event_description);
+            date = itemview.findViewById(R.id.event_date);
+            img = itemview.findViewById(R.id.imageView);
 
         }
 
