@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -27,7 +28,8 @@ public class MainActivity extends AppCompatActivity {
                     mTextMessage.setText(R.string.title_home);
                     return true;
                 case R.id.navigation_dashboard:
-                    mTextMessage.setText(R.string.title_dashboard);
+                    Intent intent = new Intent(MainActivity.this,Myevent.class);
+                    startActivity(intent);
                     return true;
 
             }
@@ -44,18 +46,25 @@ public class MainActivity extends AppCompatActivity {
         username = findViewById(R.id.email);
         password = findViewById(R.id.password);
 
-        String skills = "IT,Science";
-        String number = "80959588327";
+        final String skills = "IT,Science";
+        final String number = "80959588327";
 
         String name = username.getText().toString().trim();
+        Log.e( name , "onCreate: name*************************************************** " );
         final globalclass globalvariable = (globalclass) getApplicationContext();
         globalvariable.setUsername(name);
-        globalvariable.setNumber(skills);
+        globalvariable.setSkills(skills);
         globalvariable.setNumber(number);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String name = username.getText().toString().trim();
+                Log.e( name , "onCreate: name*************************************************** " );
+                final globalclass globalvariable = (globalclass) getApplicationContext();
+                globalvariable.setUsername(name);
+                globalvariable.setSkills(skills);
+                globalvariable.setNumber(number);
                 Intent intent = new Intent(MainActivity.this,eventactivity.class);
                 startActivity(intent);
             }

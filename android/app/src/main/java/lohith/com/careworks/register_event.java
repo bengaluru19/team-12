@@ -23,7 +23,7 @@ import java.util.ArrayList;
 public class register_event extends AppCompatActivity {
 
     TextView namedisplay , datedisplay , descriptiondisplay , number_of_prople_display , skillsetdisplay , materials_requireddisplay , locationdisplay;
-    String evid , evname;
+    String evid , evname , evdate;
     Button b;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -55,6 +55,7 @@ public class register_event extends AppCompatActivity {
                           evname = name;
                           String description = d.child("description").getValue().toString();
                           String date = d.child("date").getValue().toString();
+                          evdate = date;
                           String number_of_people = d.child("numParticipant").getValue().toString();
                           String skillset = d.child("skills").getValue().toString();
                           String location = d.child("location").getValue().toString();
@@ -86,9 +87,10 @@ public class register_event extends AppCompatActivity {
                 final String number = globalvariable.getNumber();
                 final String skills = globalvariable.getSkills();
 
+                Log.e( name , "onClick: skills");
                 String key = databaseReference1.push().getKey();
 
-                RegisterEvent re = new RegisterEvent(evid,evname,name,number,skills);
+                RegisterEvent re = new RegisterEvent(evid,evname,name,number,skills,evdate);
                 databaseReference1.child(key).setValue(re).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
