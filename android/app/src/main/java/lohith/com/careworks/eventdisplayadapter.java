@@ -43,6 +43,7 @@ public class eventdisplayadapter extends RecyclerView.Adapter<eventdisplayadapte
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context,qrscan.class);
+                intent.putExtra("evname",e.getName());
                 context.startActivity(intent);
 
             }
