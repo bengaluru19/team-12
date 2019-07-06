@@ -5,7 +5,6 @@ import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/picker
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import idGenerator from 'react-id-generator';
-import QRCode from 'qrcode.react';
 
 import firebase from './../Firebase';
 import axios from 'axios';
@@ -37,7 +36,8 @@ export default function CreateEvent() {
         skills: '',
         materials: '',
         location: '',
-        numParticipant: 0
+        numParticipant: 0,
+        description: ''
     });
   
     const handleChange = name => event => {
@@ -52,12 +52,14 @@ export default function CreateEvent() {
         formData.append("image", file);
         axios.post('https://api.imgbb.com/1/upload', {
             key: '7e7644053b20a96dc8d9c56c6125986f',
-            image: formData 
+            image: formData
         }, {
             headers: {
               'Content-Type': 'multipart/form-data'
             }
         })
+        .then(res => console.log(res))
+        .catch(err => console.log(err));
     }
     function handleSubmit(){
         let dataToSend = values;
@@ -67,6 +69,14 @@ export default function CreateEvent() {
         let ref = firebase.database().ref();
         let child = ref.child("Events");
         child.push().set(dataToSend);
+        let child2 = ref.child("events");
+        let data2 = {
+            date: dataToSend.date,
+            description : dataToSend.description,
+            id : dataToSend.id,
+            name: dataToSend.name,
+        }
+        child2.push().set(data2);
     }
   
     return (
@@ -93,6 +103,14 @@ export default function CreateEvent() {
                     label="Number of Participants"
                     className={classes.textField}
                     onChange={handleChange('numParticipant')}
+                    margin="normal"
+                />
+                <TextField
+                    required
+                    id="standard-required"
+                    label="Description"
+                    className={classes.textField}
+                    onChange={handleChange('description')}
                     margin="normal"
                 />
                 <br />

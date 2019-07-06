@@ -24,7 +24,7 @@ export const mainListItems = (
         <ListItemText primary="Review Requests" />
         </ListItem>
     </Link>
-    <Link to="/generateQR">
+    <Link to="/qr">
         <ListItem button>
             <ListItemIcon>
                 <PeopleIcon />

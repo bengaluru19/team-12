@@ -101,7 +101,7 @@ const useStyles = makeStyles(theme => ({
 
 function ReviewDashboard() {
 	const classes = useStyles();
-	const [draweropen, setDrawerOpen] = useState(true);
+	const [draweropen, setDrawerOpen] = useState(false);
 	const handleDrawerOpen = () => {
 		setDrawerOpen(true);
 	};

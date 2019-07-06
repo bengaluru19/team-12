@@ -12,12 +12,12 @@ import IconButton from '@material-ui/core/IconButton';
 import Badge from '@material-ui/core/Badge';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems } from './dashboardCommon/listItems';
-import CreateEvent from './CreateEvent';
+import ReviewRequests from './Review/ReviewRequest';
+import EventQR from './QR/EventQR';
 
 const drawerWidth = 240;
 
@@ -100,7 +100,7 @@ const useStyles = makeStyles(theme => ({
   	},
 }));
 
-function Home() {
+function QRDashboard() {
 	const classes = useStyles();
 	const [draweropen, setDrawerOpen] = useState(false);
 	const handleDrawerOpen = () => {
@@ -153,9 +153,8 @@ function Home() {
 			<main className={classes.content}>
 				<div className={classes.appBarSpacer} />
 				<Container maxWidth="lg" className={classes.container}>
-					<h1>Create Event</h1>
 					<Grid container spacing={3}>
-						<CreateEvent />
+						<EventQR />
 					</Grid>
 				</Container>
 			</main>
@@ -163,4 +162,4 @@ function Home() {
   	);
 }
 
-export default Home;
+export default QRDashboard;
