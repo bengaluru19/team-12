@@ -19,9 +19,8 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-function SingleEventReview(){
+function SingleEventReview(props){
 	const classes = useStyles();
-
     return(
         <Paper className={classes.root}>
 			<Table className={classes.table}>
@@ -34,10 +33,10 @@ function SingleEventReview(){
 				</TableRow>
 				</TableHead>
 				<TableBody>
-				{/* {rows.map(row => ( */}
-					<TableRow key="row.name">
-						<TableCell>Saurav Bhagat</TableCell>
-						<TableCell>Can speak kannada, tamil, make PJs</TableCell>
+				{props.usersData.map(row => (
+					<TableRow key={row.name}>
+						<TableCell>{row.name}</TableCell>
+						<TableCell>{row.skills}</TableCell>
 						<TableCell>
 							<Button variant="outlined" color="primary" className={classes.button}>
 								Accept
@@ -49,7 +48,7 @@ function SingleEventReview(){
 							</Button>
 						</TableCell>
 					</TableRow>
-				{/* ))} */}
+				 ))} 
 				</TableBody>
 			</Table>
 		</Paper>
