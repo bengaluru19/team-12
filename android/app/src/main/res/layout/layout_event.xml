@@ -7,32 +7,32 @@
     <TextView
         android:id="@+id/name"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:text=""/>
     <TextView
         android:id="@+id/date"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:text=""/>
     <TextView
         android:id="@+id/desc"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:text=""/>
     <TextView
         android:id="@+id/skillset"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:text=""/>
     <TextView
         android:id="@+id/materials"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:text=""/>
     <TextView
         android:id="@+id/numberpeople"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:text=""/>
     <Button
         android:id="@+id/submit"

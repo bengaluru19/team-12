@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -18,11 +20,11 @@ public class register_event extends AppCompatActivity {
 
     TextView namedisplay , datedisplay , descriptiondisplay , number_of_prople_display , skillsetdisplay , materials_requireddisplay;
 
-
+    Button b;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_details);
+        setContentView(R.layout.layout_event);
 
         namedisplay = findViewById(R.id.name);
         datedisplay = findViewById(R.id.date);
@@ -30,6 +32,7 @@ public class register_event extends AppCompatActivity {
         number_of_prople_display = findViewById(R.id.numberpeople);
         skillsetdisplay = findViewById(R.id.skillset);
         materials_requireddisplay = findViewById(R.id.materials);
+        b = findViewById(R.id.submit);
 
         final String id = getIntent().getStringExtra("id");
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Events");
@@ -48,6 +51,7 @@ public class register_event extends AppCompatActivity {
                           String number_of_people = d.child("numParticipant").getValue().toString();
                           String skillset = d.child("skills").getValue().toString();
                           String materials_required = d.child("materials").getValue().toString();
+                          Log.e( name + " " + description + " " + date , "onDataChange: details" );
                           namedisplay.setText(name);
                           datedisplay.setText(date);
                           descriptiondisplay.setText(description);
@@ -60,6 +64,16 @@ public class register_event extends AppCompatActivity {
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatabaseReference databaseReference1 = FirebaseDatabase.getInstance().getReference("user1");
+
+
 
             }
         });
