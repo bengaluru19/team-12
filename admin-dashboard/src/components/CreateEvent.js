@@ -5,6 +5,9 @@ import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/picker
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import idGenerator from 'react-id-generator';
+import Snackbar from '@material-ui/core/Snackbar';
+import IconButton from '@material-ui/core/IconButton';
+import CloseIcon from '@material-ui/icons/Close';
 
 import firebase from './../Firebase';
 import axios from 'axios';
@@ -12,24 +15,28 @@ import axios from 'axios';
 
 const useStyles = makeStyles(theme => ({
     container: {
-      display: 'flex',
-      flexWrap: 'wrap',
+        display: 'flex',
+        flexWrap: 'wrap',
     },
     textField: {
-      marginLeft: theme.spacing(1),
-      marginRight: theme.spacing(1),
-      width: 200,
+        marginLeft: theme.spacing(1),
+        marginRight: theme.spacing(1),
+        width: 200,
     },
     dense: {
-      marginTop: 19,
+        marginTop: 19,
     },
     menu: {
-      width: 200,
+        width: 200,
+    },
+    close: {
+        padding: theme.spacing(0.5),
     },
 }));
 
 export default function CreateEvent() {
     const classes = useStyles();
+    const [snackbarOpen, setSnackbarOpen] = React.useState(false);
     const [selectedDate, setSelectedDate] = React.useState(new Date('2019-06-07T21:11:54'));
     const [values, setValues] = React.useState({
         name: '',
@@ -61,6 +68,12 @@ export default function CreateEvent() {
         .then(res => console.log(res))
         .catch(err => console.log(err));
     }
+    function handleSnackBarClose(event, reason) {
+        if (reason === 'clickaway') {
+          return;
+        }
+        setSnackbarOpen(false);
+    }
     function handleSubmit(){
         let dataToSend = values;
         dataToSend['date'] = JSON.stringify(selectedDate);
@@ -77,6 +90,15 @@ export default function CreateEvent() {
             name: dataToSend.name,
         }
         child2.push().set(data2);
+        setValues({
+            name: '',
+            skills: '',
+            materials: '',
+            location: '',
+            numParticipant: '',
+            description: ''
+        });
+
     }
   
     return (
@@ -186,7 +208,30 @@ export default function CreateEvent() {
             <Button variant="contained" color="primary" className={classes.button} onClick={handleSubmit}>
                 Submit
             </Button>
-
+            <Snackbar
+                anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'left',
+                }}
+                open={snackbarOpen}
+                autoHideDuration={6000}
+                onClose={handleSnackBarClose}
+                ContentProps={{
+                    'aria-describedby': 'message-id',
+                }}
+                message={<span id="message-id">Succesfully Created</span>}
+                action={[
+                <IconButton
+                    key="close"
+                    aria-label="Close"
+                    color="inherit"
+                    className={classes.close}
+                    onClick={handleSnackBarClose}
+                >
+                    <CloseIcon />
+                </IconButton>,
+                ]}
+            />
         </div>
     );
   }
