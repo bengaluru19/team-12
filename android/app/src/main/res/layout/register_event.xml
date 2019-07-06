@@ -19,7 +19,8 @@
         android:text="Name"
         android:textSize="30dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:textStyle="bold"/>
 
 
     <TextView
@@ -28,102 +29,124 @@
 
         android:layout_height="55dp"
         android:layout_below="@+id/name"
-        android:layout_marginTop="24dp"
-        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="24dp"
         android:background="@drawable/rounded"
         android:gravity="center"
-        android:text="date" />
+        android:text="date"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/location"
         android:layout_width="177dp"
         android:layout_height="51dp"
-        android:layout_below="@+id/name"
-        android:layout_marginTop="24dp"
+        android:layout_below="@+id/map"
+        android:layout_marginTop="16dp"
         android:layout_marginLeft="56dp"
         android:layout_toRightOf="@+id/date"
         android:background="@drawable/rounded"
         android:gravity="center"
-        android:text="location" />
+        android:text="location"
+        android:textStyle="bold"/>
 
     <TextView
+        android:id="@+id/numb"
         android:layout_width="213dp"
         android:layout_height="44dp"
         android:layout_below="@+id/location"
+        android:layout_marginTop="16dp"
         android:background="@drawable/rounded"
         android:gravity="center"
         android:text="number of participants"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="24dp"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/number_of_participants"
-        android:layout_width="213dp"
+        android:layout_width="50dp"
+        android:layout_marginTop="16dp"
         android:layout_height="44dp"
         android:layout_below="@+id/location"
-        android:layout_marginStart="16dp"
-        android:layout_toRightOf="@+id/date"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="210dp"
+        android:layout_toRightOf="@+id/numb"
         android:background="@drawable/rounded"
         android:gravity="center"
-        android:text="7"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="7" />
     <TextView
-        android:layout_width="111dp"
-        android:layout_height="21dp"
-        android:layout_below="@+id/number_of_participants"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="260dp"
+        android:id="@+id/desc"
+        android:layout_marginLeft="24dp"
+        android:layout_width="100dp"
+        android:layout_height="44dp"
+        android:layout_below="@+id/numb"
+        android:layout_marginTop="16dp"
         android:background="@drawable/rounded"
         android:gravity="center"
         android:text="description"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textStyle="bold"
+         />
     <TextView
         android:id="@+id/description"
         android:layout_width="367dp"
         android:layout_height="91dp"
-        android:layout_below="@+id/number_of_participants"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="260dp"
+        android:layout_below="@+id/desc"
+        android:layout_marginTop="32dp"
+        android:layout_marginLeft="24dp"
+        android:background="@drawable/rounded"
+        android:text="description"
+        />
+
+    <TextView
+
+        android:id="@+id/mat"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="24dp"
+        android:layout_below="@+id/description"
+        android:layout_marginTop="32dp"
         android:background="@drawable/rounded"
         android:gravity="center"
-        android:text="description"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        android:text="Materials Required"
+        android:textStyle="bold"
+         />
     <TextView
         android:id="@+id/materials_required"
-        android:layout_width="368dp"
+        android:layout_width="220dp"
         android:layout_height="45dp"
         android:layout_below="@+id/description"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="372dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/rounded"
+        android:layout_toRightOf="@+id/mat"
         android:gravity="center"
-        android:text="materials required"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="msddsfsdf"
 
+         />
+
+    < <TextView
+
+    android:id="@+id/ski"
+    android:layout_width="150dp"
+    android:layout_height="45dp"
+    android:layout_marginLeft="24dp"
+    android:layout_below="@+id/mat"
+    android:layout_marginTop="32dp"
+    android:background="@drawable/rounded"
+    android:gravity="center"
+    android:text="Skill Set Required"
+    android:textStyle="bold"
+    />
     <TextView
         android:id="@+id/skill_set"
-        android:layout_width="367dp"
+        android:layout_width="220dp"
         android:layout_height="45dp"
-        android:layout_below="@+id/materials_required"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="448dp"
+        android:layout_below="@+id/mat"
+        android:layout_marginTop="32dp"
         android:background="@drawable/rounded"
+        android:layout_toRightOf="@+id/mat"
         android:gravity="center"
-        android:text="skill set"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="msddsfsdf"
 
+        />
     <Button
         android:id="@+id/register"
         android:layout_width="395dp"
