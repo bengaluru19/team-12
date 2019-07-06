@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import InputLabel from '@material-ui/core/InputLabel';
 import { makeStyles } from '@material-ui/core/styles';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import firebase from './../../Firebase';
+import QRCode from 'qrcode.react';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -21,9 +21,7 @@ const useStyles = makeStyles(theme => ({
 
 function EventQR(){
     const classes = useStyles();
-    const [state, setState] = useState({
-        event: ''
-    });
+    const [selectedEvent, setSelectedEvent] = useState('');
     const [eventData, setEventData] = useState({});
     let ref = firebase.database().ref();    
     let eventChild = ref.child("Events");
@@ -31,23 +29,21 @@ function EventQR(){
     useEffect(() => {
         eventChild.on("value", snapshot => {
             setEventData(snapshot.val());
+            setSelectedEvent(Object.values(snapshot.val())[0].id);
         });
     }, [])
 
     const handleChange = name => event => {
         let value = event.target.value;
-        setState({
-            ...state,
-            [name]: value,
-        });
+        setSelectedEvent(value);
     };
     return(
-        <div>
+        <div style={{ display: 'flex',width:'100%',justifyContent:'space-around' }}>
             <FormControl className={classes.formControl}>
-                <InputLabel htmlFor="age-native-simple">Select Event</InputLabel>
+                <label>Select Event</label>
                 <Select
                     native
-                    value={state.age}
+                    value={selectedEvent}
                     onChange={handleChange('event')}
                     inputProps={{
                         name: 'event',
@@ -61,6 +57,11 @@ function EventQR(){
                     }
                 </Select>
             </FormControl>
+            <div style={{textAlign:'center'}}>
+                <h2>QR Code for this Event is:</h2>
+                { selectedEvent==='' && "No selectedEvent" }
+                { selectedEvent!== '' && <QRCode value={selectedEvent} /> }
+            </div>
         </div>
     );
 }
