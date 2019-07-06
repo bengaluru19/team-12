@@ -21,6 +21,8 @@
         </activity>
         <activity android:name=".eventactivity"></activity>
         <activity android:name=".register_event"></activity>
+        <activity android:name=".qrscan"></activity>
+        <activity android:name=".Myevent"></activity>
     </application>
 
 </manifest>
