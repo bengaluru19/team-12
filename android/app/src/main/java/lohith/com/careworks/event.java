@@ -1,17 +1,18 @@
 package lohith.com.careworks;
 
 public class event {
-    String name , description , date , url;
+    String name , description , date , url , id;
 
     public event(){
 
     }
 
-    public event(String name , String description , String date , String url ){
+    public event(String name , String description , String date , String url, String id ){
         this.name = name;
         this.description = description;
         this.date = date;
         this.url = url;
+        this.id = id;
     }
 
     public String getName() {
@@ -30,6 +31,8 @@ public class event {
         return url;
     }
 
+    public String getId() { return id;}
+
     public void setName(String name) {
         this.name = name;
     }
@@ -45,4 +48,6 @@ public class event {
     public void setUrl(String url) {
         this.url = url;
     }
+
+    public void setId(String id) { this.id = id;}
 }
