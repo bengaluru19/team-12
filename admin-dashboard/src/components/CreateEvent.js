@@ -46,10 +46,11 @@ export default function CreateEvent() {
     function handleSubmit(){
         let dataToSend = values;
         dataToSend.date = selectedDate;
-        let ref = firebase.firestore().collection('events');
-        ref.get().then(doc => {
-            console.log(doc.snapshot());
-        }).catch(err => console.log(err));
+        let ref = firebase.database().ref();
+        let child = ref.child("events");
+
+        child.push().set(dataToSend);
+
         console.log(dataToSend);
     }
   
