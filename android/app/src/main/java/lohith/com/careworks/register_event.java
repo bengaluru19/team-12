@@ -86,6 +86,7 @@ public class register_event extends AppCompatActivity {
                 final String number = globalvariable.getNumber();
                 final String skills = globalvariable.getSkills();
 
+                Log.e( name , "onClick: skills");
                 String key = databaseReference1.push().getKey();
 
                 RegisterEvent re = new RegisterEvent(evid,evname,name,number,skills);
