@@ -63,13 +63,13 @@
         android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/signup"
+        android:id="@+id/textview5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="114dp"
-        android:layout_marginStart="112dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="121dp"
+        android:layout_marginBottom="300dp"
         android:text="Not a user yet? " />
 
     <TextView
@@ -86,11 +86,11 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/signup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/signup"
-        android:layout_toEndOf="@+id/signup"
+        android:layout_alignTop="@+id/textview5"
+        android:layout_toEndOf="@+id/textview5"
         android:text="Sign Up!"
         android:textColor="@color/colorPrimaryDark"/>
 

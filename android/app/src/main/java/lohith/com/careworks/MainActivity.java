@@ -15,6 +15,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     private TextView mTextMessage;
+    TextView signup;
     Button button;
     EditText username;
     EditText password;
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         button = findViewById(R.id.submit);
         username = findViewById(R.id.email);
         password = findViewById(R.id.password);
+        signup = findViewById(R.id.signup);
 
         final String skills = "IT,Science";
         final String number = "80959588327";
@@ -66,6 +68,14 @@ public class MainActivity extends AppCompatActivity {
                 globalvariable.setSkills(skills);
                 globalvariable.setNumber(number);
                 Intent intent = new Intent(MainActivity.this,eventactivity.class);
+                startActivity(intent);
+            }
+        });
+
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,signupactivity.class);
                 startActivity(intent);
             }
         });
