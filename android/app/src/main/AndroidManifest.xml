@@ -25,4 +25,5 @@
         <activity android:name=".Myevent"></activity>
     </application>
 
+
 </manifest>
