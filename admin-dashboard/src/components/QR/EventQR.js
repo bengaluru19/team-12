@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import Paper from '@material-ui/core/Paper';
 import firebase from './../../Firebase';
 import QRCode from 'qrcode.react';
 import { Link } from 'react-router-dom';
@@ -41,34 +42,39 @@ function EventQR(){
     return(
         <div style={{ width: '100%'}}>
         <div style={{ display: 'flex',width:'100%',justifyContent:'space-around' }}>
-            <FormControl className={classes.formControl}>
-                <label>Select Event</label>
-                <Select
-                    native
-                    value={selectedEvent}
-                    onChange={handleChange('event')}
-                    inputProps={{
-                        name: 'event',
-                        id: 'age-native-simple',
-                    }}
-                >
-                    {
-                        Object.keys(eventData).map((event, i) => {
-                           return <option key={i} value={eventData[event].name}>{eventData[event].name}</option>
-                        })
-                    }
-                </Select>
-            </FormControl>
+            <Paper style={{ padding: '30px', width:'400px' }}>
+                <FormControl className={classes.formControl}>
+                    <h2>Select Event</h2>
+                    <Select
+                        native
+                        value={selectedEvent}
+                        onChange={handleChange('event')}
+                        inputProps={{
+                            name: 'event',
+                            id: 'age-native-simple',
+                        }}
+                    >
+                        {
+                            Object.keys(eventData).map((event, i) => {
+                            return <option key={i} value={eventData[event].name}>{eventData[event].name}</option>
+                            })
+                        }
+                    </Select>
+                </FormControl>
+            </Paper>
+            
             <div style={{textAlign:'center'}}>
-                <h2>QR Code for {selectedEvent} Event is:</h2>
-                { selectedEvent==='' && "No selectedEvent" }
-                { selectedEvent!== '' && <QRCode value={selectedEvent} /> }
+                <Paper style={{ width:'400px' }}  className="event-report-paper">
+                    <h2>QR Code for {selectedEvent} Event is:</h2>
+                    { selectedEvent==='' && "No selectedEvent" }
+                    { selectedEvent!== '' && <QRCode value={selectedEvent} /> }
+                </Paper>
             </div>
         </div>
         <br />
             <br />
             <br />
-            <Link to="/scan">scan</Link>
+            {/* <Link to="/scan">scan</Link> */}
         </div>
     );
 }

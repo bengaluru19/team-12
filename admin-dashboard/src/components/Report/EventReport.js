@@ -7,8 +7,12 @@ import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
+import Paper from '@material-ui/core/Paper';
 import VolunteerReport from './VolunteerReport';
 import firebase from './../../Firebase';
+import BallotIcon from '@material-ui/icons/Ballot';
+import RecordVoiceOver from '@material-ui/icons/RecordVoiceOver';
+
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -81,8 +85,8 @@ export default function EventReport() {
                 textColor="primary"
                 variant="fullWidth"
                 >
-                    <Tab label="Event Report" />
-                    <Tab label="Volunteer Report" />
+                    <Tab style={{ display: 'contents' }} icon={<BallotIcon />} label="Event Report" />
+                    <Tab  style={{ display: 'contents' }} icon={<RecordVoiceOver />} label="Volunteer Report" />
                 </Tabs>
             </AppBar>
             <SwipeableViews
@@ -92,38 +96,43 @@ export default function EventReport() {
             >
                 <TabContainer dir={theme.direction}>
                     <div style={{ display: 'flex',width:'100%',justifyContent:'space-around' }}>
-                        <FormControl className={classes.formControl}>
-                            <label>Select Event</label>
-                            <Select
-                                native
-                                value={selectedEvent}
-                                onChange={handleSelectChange('event')}
-                                inputProps={{
-                                    name: 'event',
-                                    id: 'age-native-simple',
-                                }}
-                            >
+                        <Paper style={{ width:'400px', textAlign: 'center', padding: '30px' }}>
+                            <FormControl className={classes.formControl}>
+                                <h2>Select Event</h2>
+                                <Select
+                                    native
+                                    value={selectedEvent}
+                                    onChange={handleSelectChange('event')}
+                                    inputProps={{
+                                        name: 'event',
+                                        id: 'age-native-simple',
+                                    }}
+                                >
+                                    {
+                                        Object.keys(eventData).map((event, i) => {
+                                            return <option key={i} value={event}>{eventData[event].name}</option>
+                                        })
+                                    }
+                                </Select>
+                            </FormControl>
+                        </Paper>
+                        
+                        <div>
+                            <Paper style={{ width:'400px' }}  className="event-report-paper">
                                 {
-                                    Object.keys(eventData).map((event, i) => {
-                                        return <option key={i} value={event}>{eventData[event].name}</option>
-                                    })
-                                }
-                            </Select>
-                        </FormControl>
-                        <div style={{textAlign:'center' }}>
-                            {
-                                isEventSelected &&
-                                <div className="report-wrapper">
-                                    <div>
-                                        <p>Event Name: {currentEventData.name}</p>
-                                        <p>Event Date: {currentEventData.date.slice(1,11)}</p>
-                                        <p>Number of Volunteers: {numVolunteers}</p>
+                                    isEventSelected &&
+                                    <div className="report-wrapper">
+                                        <div>
+                                            <p><b>Event Name:</b> {currentEventData.name}</p>
+                                            <p><b>Event Date:</b> {currentEventData.date.slice(1,11)}</p>
+                                            <p><b>Number of Volunteers:</b> {numVolunteers}</p>
+                                        </div>
                                     </div>
-                                </div>
-                            }
-                            {
-                                !isEventSelected && <div>No Event Selected</div>
-                            }
+                                }
+                                {
+                                    !isEventSelected && <div>No Event Selected</div>
+                                }
+                            </Paper>
                         </div>
                     </div>
                 </TabContainer>

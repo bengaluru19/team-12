@@ -90,6 +90,18 @@ export default function CreateEvent() {
             name: dataToSend.name,
         }
         child2.push().set(data2);
+        let receiverEmail = "sauravbhagat6969@gmail.com";
+        let template = 'template_9tqfVEAj';
+        window.emailjs.send("gmail", "template_9tqfVEAj", {
+            from_name: 'careworks',
+            to_name: 'saurav',
+            message_html : 'Greetings'
+        })
+            .then(res => {
+                console.log(res);
+            })
+            // Handle errors here however you like, or use a React error boundary
+            .catch(err => console.error('Failed to send feedback. Error: ', err))
         setValues({
             name: '',
             skills: '',
@@ -98,6 +110,7 @@ export default function CreateEvent() {
             numParticipant: '',
             description: ''
         });
+        window.location.reload();
 
     }
   
