@@ -4,11 +4,13 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import PeopleIcon from '@material-ui/icons/People';
+import BarChartIcon from '@material-ui/icons/BarChart';
+import AssignmentIcon from '@material-ui/icons/Assignment';
 import { Link } from 'react-router-dom';
 
 export const mainListItems = (
   <div>
-    <Link to="/">
+    <Link to="/create">
         <ListItem button>
         <ListItemIcon>
             <DashboardIcon />
@@ -19,7 +21,7 @@ export const mainListItems = (
     <Link to="/review">
         <ListItem button>
         <ListItemIcon>
-            <DashboardIcon />
+            <PeopleIcon />
         </ListItemIcon>
         <ListItemText primary="Review Requests" />
         </ListItem>
@@ -27,7 +29,7 @@ export const mainListItems = (
     <Link to="/qr">
         <ListItem button>
             <ListItemIcon>
-                <PeopleIcon />
+                <BarChartIcon />
             </ListItemIcon>
             <ListItemText primary="Generate QR" />
         </ListItem>
@@ -35,7 +37,7 @@ export const mainListItems = (
     <Link to="/reports">
         <ListItem button>
         <ListItemIcon>
-            <DashboardIcon />
+            <AssignmentIcon />
         </ListItemIcon>
         <ListItemText primary="Reports" />
         </ListItem>
