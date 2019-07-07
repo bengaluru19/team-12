@@ -10,6 +10,9 @@ import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import VolunteerReport from './VolunteerReport';
 import firebase from './../../Firebase';
+import BallotIcon from '@material-ui/icons/Ballot';
+import RecordVoiceOver from '@material-ui/icons/RecordVoiceOver';
+
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -82,8 +85,8 @@ export default function EventReport() {
                 textColor="primary"
                 variant="fullWidth"
                 >
-                    <Tab label="Event Report" />
-                    <Tab label="Volunteer Report" />
+                    <Tab style={{ display: 'contents' }} icon={<BallotIcon />} label="Event Report" />
+                    <Tab  style={{ display: 'contents' }} icon={<RecordVoiceOver />} label="Volunteer Report" />
                 </Tabs>
             </AppBar>
             <SwipeableViews

@@ -40,7 +40,9 @@ export default function EventReport() {
     const handleSelectChange = name => event => {
         let value = event.target.value;
         setSelectedEvent(value);
+        setIsEventSelected(false);
         setcurrentVolunteerData(volunteerData[value]);
+        setIsEventSelected(true);
     };
 
     console.log(currentVolunteerData);
@@ -76,7 +78,11 @@ export default function EventReport() {
                                     <p><b>Volunteer Name:</b> {currentVolunteerData.name}</p>
                                     <p><b>Volunteer Email:</b> {currentVolunteerData.email}</p>
                                     <p><b>Contact:</b> {currentVolunteerData.number}</p>
-                                    <p><b>Number of Events Attended:</b> {Object.keys(currentVolunteerData.Events).length}</p>
+                                    {
+                                        currentVolunteerData.Events && 
+                                        <p><b>Number of Events Attended:</b> {Object.keys(currentVolunteerData.Events).length}</p>
+
+                                    }
                                 </div>
                             </div>
                         }
