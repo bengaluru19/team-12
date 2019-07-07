@@ -23,6 +23,9 @@
         <activity android:name=".register_event"></activity>
         <activity android:name=".qrscan"></activity>
         <activity android:name=".Myevent"></activity>
+        <activity android:name=".startevent"></activity>
+        <activity android:name=".EventMap"></activity>
+        <activity android:name=".signupactivity"></activity>
     </application>
 
 

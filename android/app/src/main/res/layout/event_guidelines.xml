@@ -1,8 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/head"
+        android:layout_marginBottom="32dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Guidelines to follow"
+        android:layout_marginLeft="48dp"
+        android:textColor="@color/black"
+        android:textSize="32sp"/>
+
+    <ImageView
+        android:layout_below="@+id/head"
+        android:id="@+id/image"
+        android:layout_marginBottom="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/guide"/>
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_margin="16dp"
+        android:textSize="24sp"
+        android:layout_below="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="lorem ipsum kjhsdkjashd askjdhaskjdhsad asdjbaskjdhasjkdhasjkda kjsdahkjashjaksd ajksbdkjashdjkasdhasjd kajsdhkjasdhjsakd  aksjdhkajsdh"
+        android:fontFamily="sans-serif"
+        />
+
+    <Button
+        android:layout_below="@+id/text"
+        android:id="@+id/end"
+        android:text="End Session"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
 
 
-</android.support.constraint.ConstraintLayout>
+
+
+</RelativeLayout>

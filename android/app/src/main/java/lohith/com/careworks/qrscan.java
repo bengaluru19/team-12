@@ -57,6 +57,7 @@ public class qrscan extends AppCompatActivity implements View.OnClickListener {
                     //to a toast
                     if(result.getContents().equals(original)){
                         Intent intent = new Intent(qrscan.this,startevent.class);
+                        intent.putExtra("evname",original);
                         startActivity(intent);
                     }
                 }
