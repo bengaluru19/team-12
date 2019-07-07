@@ -30,7 +30,7 @@ function EventQR(){
     useEffect(() => {
         eventChild.on("value", snapshot => {
             setEventData(snapshot.val());
-            setSelectedEvent(Object.values(snapshot.val())[0].id);
+            setSelectedEvent(Object.values(snapshot.val())[0].name);
         });
     }, [])
 
@@ -54,13 +54,13 @@ function EventQR(){
                 >
                     {
                         Object.keys(eventData).map((event, i) => {
-                           return <option key={i} value={eventData[event].id}>{eventData[event].name}</option>
+                           return <option key={i} value={eventData[event].name}>{eventData[event].name}</option>
                         })
                     }
                 </Select>
             </FormControl>
             <div style={{textAlign:'center'}}>
-                <h2>QR Code for this Event is:</h2>
+                <h2>QR Code for {selectedEvent} Event is:</h2>
                 { selectedEvent==='' && "No selectedEvent" }
                 { selectedEvent!== '' && <QRCode value={selectedEvent} /> }
             </div>
