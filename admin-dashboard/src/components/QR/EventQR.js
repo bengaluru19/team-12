@@ -74,7 +74,7 @@ function EventQR(){
         <br />
             <br />
             <br />
-            <Link to="/scan">scan</Link>
+            {/* <Link to="/scan">scan</Link> */}
         </div>
     );
 }

@@ -110,7 +110,7 @@ export default function CreateEvent() {
             numParticipant: '',
             description: ''
         });
-        window.reload();
+        window.location.reload();
 
     }
   
