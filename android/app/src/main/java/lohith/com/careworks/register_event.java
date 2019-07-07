@@ -56,6 +56,7 @@ public class register_event extends AppCompatActivity {
                           String description = d.child("description").getValue().toString();
                           String date = d.child("date").getValue().toString();
                           evdate = date;
+                          date = date.substring(1,11);
                           String number_of_people = d.child("numParticipant").getValue().toString();
                           String skillset = d.child("skills").getValue().toString();
                           String location = d.child("location").getValue().toString();

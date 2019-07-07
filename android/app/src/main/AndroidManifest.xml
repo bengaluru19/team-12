@@ -26,6 +26,7 @@
         <activity android:name=".startevent"></activity>
         <activity android:name=".EventMap"></activity>
         <activity android:name=".signupactivity"></activity>
+
     </application>
 
 

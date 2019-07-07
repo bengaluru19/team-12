@@ -9,11 +9,12 @@ import android.widget.Button;
 
 public class startevent extends AppCompatActivity {
 
-    Button b = findViewById(R.id.end);
+    Button b;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.event_guidelines);
+        b = findViewById(R.id.end);
         final String evname = getIntent().getStringExtra("evname");
         b.setOnClickListener(new View.OnClickListener() {
             @Override
